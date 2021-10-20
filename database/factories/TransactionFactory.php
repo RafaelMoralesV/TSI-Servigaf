@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Client;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,10 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            // Sinceramente, no estoy del totalmente seguro de como hacer esto
+            'client_id' => Client::get()->random(),
+            'was_payed' => false,
+            'was_received' => false,
+            'extra' => $this->faker->text,
         ];
     }
 }
