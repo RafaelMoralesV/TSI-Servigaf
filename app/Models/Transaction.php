@@ -13,4 +13,12 @@ class Transaction extends Model
     public function client(): BelongsTo {
         return $this->belongsTo(Client::class);
     }
+
+    public function order() {
+        return $this->hasMany(Order::class);
+    }
+
+    public function products() {
+        return $this->belongsToMany(Product::class, 'orders');
+    }
 }
