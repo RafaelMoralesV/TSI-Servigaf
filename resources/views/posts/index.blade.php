@@ -1,5 +1,5 @@
 <!-- mostrar lista de posts -->
-@extends ('layouts.app')
+@extends ('layouts.carlos')
 
 @section('content')
     Index
