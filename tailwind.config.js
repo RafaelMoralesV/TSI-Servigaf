@@ -19,7 +19,10 @@ module.exports = {
         extend: {
             opacity: ['disabled'],
         },
+        display:['group-hover']
+}
     },
 
     plugins: [require('@tailwindcss/forms')],
 };
+

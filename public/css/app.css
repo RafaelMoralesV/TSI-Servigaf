@@ -1267,7 +1267,9 @@ select {
   bottom: -4rem;
   left: -4rem;
 }
-
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 .-inset-20 {
   top: -5rem;
   right: -5rem;
@@ -1980,6 +1982,7 @@ select {
   top: 2.25rem;
   bottom: 2.25rem;
 }
+
 
 .inset-y-10 {
   top: 2.5rem;
