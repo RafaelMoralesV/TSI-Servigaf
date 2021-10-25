@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/posts', function () {
     return view('posts.index');
 });
+
+Route::resource('products', ProductController::class);
+// resource : transacciones
+// resource : cliente
+// resource mas pequenho para productos : guest
 
 Route::get('/', function () {
     return view('welcome');
