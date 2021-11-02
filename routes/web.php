@@ -21,12 +21,9 @@ Route::get('/posts', function () {
 });
 
 Route::resource('products', ProductController::class);
-// resource : transacciones 
-Route::resource('products', TransactionController::class);
-// resource : cliente
-Route::resource('products', ClientController::class);
-// resource mas pequenho para productos : guest
-Route::resource('products', GuestController::class);
+Route::resource('transactions', TransactionController::class);
+Route::resource('clients', ClientController::class);
+Route::resource('guests', GuestController::class);
 
 
 Route::get('/', function () {
