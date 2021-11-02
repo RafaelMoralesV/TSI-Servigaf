@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +21,13 @@ Route::get('/posts', function () {
 });
 
 Route::resource('products', ProductController::class);
-// resource : transacciones
+// resource : transacciones 
+Route::resource('products', TransactionController::class);
 // resource : cliente
+Route::resource('products', ClientController::class);
 // resource mas pequenho para productos : guest
+Route::resource('products', GuestController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
