@@ -16,22 +16,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/posts', function () {
-    return view('posts.index');
-});
-
-Route::resource('products', ProductController::class);
-Route::resource('transactions', TransactionController::class);
-Route::resource('clients', ClientController::class);
-Route::resource('guests', GuestController::class);
-
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::resource('products', ProductController::class);
+    Route::resource('transactions', TransactionController::class);
+    Route::resource('clients', ClientController::class);
+    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+});
+
+Route::get('/posts', function () {
+    return view('posts.index');
+});
 
 require __DIR__.'/auth.php';
