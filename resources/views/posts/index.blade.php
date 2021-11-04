@@ -1,5 +1,5 @@
 <!-- mostrar lista de posts -->
-@extends ('layouts.carlos')
+@extends ('layouts.guest-navigation')
 
 @section('content')
     Index

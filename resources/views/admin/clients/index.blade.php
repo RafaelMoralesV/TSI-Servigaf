@@ -1,4 +1,4 @@
-@extends ('layouts.carlos')
+@extends ('layouts.guest-navigation')
 
 @section('content')
     <table class="table-auto">
