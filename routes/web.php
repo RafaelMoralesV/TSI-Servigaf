@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('transactions', TransactionController::class);
     Route::resource('clients', ClientController::class);
