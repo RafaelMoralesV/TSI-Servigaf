@@ -14,9 +14,7 @@
     <!-- navbar -->
     <nav class="flex justify-between bg-white text-black w-screen">
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-            <a class="text-3xl font-bold font-heading" href="#">
-                <img class="h-16" src="{{ asset('logo.jpg') }}" alt="logo">
-            </a>
+            <x-application-logo></x-application-logo>
             <!-- < Barra de busqueda > -->
             <div class="pt-2 relative mx-auto text-gray-600">
                 <label>
