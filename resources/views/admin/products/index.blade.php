@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table class="w-full bg-white shadow-md rounded">
+                    <table class="w-full bg-white shadow-md rounded mb-4">
                         <thead class="bg-gray-300 font-bold">
                         <tr>
                             <th>{{ __('ID') }}</th>
@@ -51,6 +51,7 @@
                         @endforelse
                         </tbody>
                     </table>
+                    {{ $products->links() }}
                 </div>
             </div>
         </div>
