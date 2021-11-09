@@ -71,11 +71,14 @@ class ProductController extends Controller
      *
      * @param Request $request
      * @param Product $product
-     * @return void
+     * @return RedirectResponse
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductsRequest $request, Product $product): RedirectResponse
     {
-        //
+        $product->update($request->validated());
+
+        return redirect()->route('products.index')
+            ->with('message', __('El producto ha sido actualizado exitosamente'));
     }
 
     /**
