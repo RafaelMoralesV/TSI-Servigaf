@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\admin\ProductsRequest;
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -32,12 +34,14 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return void
+     * @param ProductsRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ProductsRequest $request): RedirectResponse
     {
-        //
+        Product::create($request->validated());
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -78,10 +82,11 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Product $product
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): RedirectResponse
     {
+        $product->delete();
         return redirect()->route('products.index');
     }
 }
