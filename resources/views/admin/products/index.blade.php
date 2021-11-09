@@ -8,6 +8,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <div class="my-5 flex justify-end">
+                        <a type="button"
+                           class="mr-3 text-sm text-white bg-green-400 hover:bg-green-700 rounded py-1 px-2 focus:outline-none focus:shadow-outline"
+                           href="{{ route('products.create') }}">{{ __("Crear nuevo producto") }}</a>
+                        <a type="button"
+                           class="mr-3 text-sm text-white bg-red-400 hover:bg-red-700 rounded py-1 px-2 focus:outline-none focus:shadow-outline"
+                           href="#">{{ __("Ver productos eliminados") }}</a>
+                    </div>
+
                     <table class="w-full bg-white shadow-md rounded mb-4">
                         <thead class="bg-gray-300 font-bold">
                         <tr>

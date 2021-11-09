@@ -8,11 +8,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('products.update', ['product' => $product]) }}" method="POST">
+                    <form action="{{ route('products.store') }}" method="POST">
                         @csrf
                         <div>
                             <x-label for="name" :value="__('Nombre')"></x-label>
-                            <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="$product->name" required></x-input>
+                            <x-input id="name" class="block mt-1 w-full" type="text" name="name" required></x-input>
                         </div>
 
                         <div class="mt-4">
@@ -20,7 +20,7 @@
                             <x-input id="category" class="block mt-1 w-full"
                                      type="text"
                                      name="category"
-                                     required :value="$product->category"></x-input>
+                                     required ></x-input>
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
