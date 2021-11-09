@@ -22,10 +22,10 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
+    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
     Route::resource('products', ProductController::class);
     Route::resource('transactions', TransactionController::class);
     Route::resource('clients', ClientController::class);
-    Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
 });
 
 Route::get('/posts', function () {
