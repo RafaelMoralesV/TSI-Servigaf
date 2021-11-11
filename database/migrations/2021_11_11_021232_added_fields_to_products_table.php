@@ -16,6 +16,7 @@ class AddedFieldsToProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->string('img_path')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('is_featured')->default(false);
         });
     }
 
@@ -27,7 +28,11 @@ class AddedFieldsToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['img_path', 'description']);
+            $table->dropColumn([
+                'img_path',
+                'description',
+                'is_featured',
+            ]);
         });
     }
 }
