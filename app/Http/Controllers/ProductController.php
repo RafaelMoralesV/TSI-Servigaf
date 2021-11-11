@@ -76,7 +76,12 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
-        $product->update($request->validated());
+        $path = $request->file('image')->store('images/products');
+
+        $product->fill($request->validated());
+        $product->img_path = $path;
+
+        $product->save();
 
         return redirect()->route('products.index')
             ->with('message', __('El producto ha sido actualizado exitosamente'));

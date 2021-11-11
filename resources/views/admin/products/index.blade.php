@@ -29,8 +29,8 @@
                             <th>{{ __('ID') }}</th>
                             <th>{{ __('Nombre') }}</th>
                             <th>{{ __('Categoria') }}</th>
-                            <th>{{ __('Editar') }}</th>
-                            <th>{{ __('Eliminar') }}</th>
+                            <th>{{ __('Precio') }}</th>
+                            <th>{{ __('Opciones') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -39,22 +39,23 @@
                                 <th scope="row" class="py-5">{{ $product->id }}</th>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category }}</td>
+                                <td>{{ $product->price }}</td>
                                 <td>
-                                    <a type="button"
-                                       class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-                                       href="{{ route('products.edit', $product) }}">
-                                        {{ __('Editar') }}
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('products.destroy', $product) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                                class="mr-3 text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                            {{ __('Eliminar') }}
-                                        </button>
-                                    </form>
+                                    <div class="flex flex-row justify-center">
+                                        <a type="button"
+                                           class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                                           href="{{ route('products.edit', $product) }}">
+                                            {{ __('Editar') }}
+                                        </a>
+                                        <form action="{{ route('products.destroy', $product) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="mr-3 text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                                {{ __('Eliminar') }}
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @empty
