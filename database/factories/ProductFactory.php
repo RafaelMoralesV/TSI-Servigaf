@@ -25,6 +25,8 @@ class ProductFactory extends Factory
             'name' => $this->faker->firstName(),
             'price' => $this->faker->numberBetween(1, 50) * 1000,
             'category' => $this->faker->randomElement(['Mueble', 'Repuesto', 'Gasfiteria', 'Otros']),
+            'img_path' => $this->faker->image(),
+            'description' => $this->faker->realText(),
         ];
     }
 }
