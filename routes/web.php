@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
     Route::resource('products', ProductController::class)->except('show');
@@ -32,5 +33,7 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
 Route::get('/posts', function () {
     return view('posts.index');
 });
+
+Route::get('/guest', [GuestController::class, 'index']);
 
 require __DIR__.'/auth.php';
