@@ -147,9 +147,25 @@ Alternatively if you want to just have a single hero
 
                 <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
             Destacados
+            @foreach ($featured_products as $product)
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                <a href="#">
+                    <img class="hover:grow hover:shadow-lg" src="{{ asset('storage/app/'.$product->img_path) }}">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+                <div>
+                    <img src="{{ asset('storage/app/'.$product->img_path) }}">
+                    <h5>{{$product->name}}</h5>
+                    
+                </div>
+            @endforeach
         </a>
-
-                <div class="flex items-center" id="store-nav-content">
+                {{-- Iconos arriba a la derecha --}}
+                {{-- <div class="flex items-center" id="store-nav-content">
 
                     <a class="pl-3 inline-block no-underline hover:text-black" href="#">
                         <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -163,7 +179,7 @@ Alternatively if you want to just have a single hero
                         </svg>
                     </a>
 
-                </div>
+                </div> --}}
           </div>
         </nav>
 

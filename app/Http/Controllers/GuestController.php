@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class GuestController extends Controller
 {
@@ -13,7 +14,8 @@ class GuestController extends Controller
      */
     public function index()
     {
-        //
+        $featured_products = Product::where('is_featured', '1') ->take(8)->get();
+        return view('posts.index', compact('featured_products'));
     }
 
     /**
