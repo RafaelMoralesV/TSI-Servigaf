@@ -23,6 +23,7 @@ class Transaction extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'orders')->withPivot('amount');
+        return $this->belongsToMany(Product::class, 'orders')
+            ->withPivot(['amount', 'total_price']);
     }
 }

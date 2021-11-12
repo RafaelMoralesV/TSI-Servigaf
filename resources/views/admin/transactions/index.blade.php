@@ -25,7 +25,7 @@
                                 <th scope="row" class="py-5">{{ $transaction->id }}</th>
                                 <td>{{ $transaction->created_at }}</td>
                                 <td>{{ $transaction->client->name }}</td>
-                                <td>Pending: Esto debe ser parte de la tabla transaccion</td>
+                                <td>{{ $transaction->final_price }}</td>
                                 <td><a type="button"
                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                                        href="{{ route('transactions.show', $transaction) }}">
