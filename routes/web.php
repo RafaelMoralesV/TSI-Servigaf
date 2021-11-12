@@ -24,7 +24,8 @@ Route::get('/', function () {
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
     Route::resource('products', ProductController::class)->except('show');
-    Route::resource('transactions', TransactionController::class);
+    Route::resource('transactions', TransactionController::class)
+        ->only(['index', 'show']);
     Route::resource('clients', ClientController::class);
 });
 
