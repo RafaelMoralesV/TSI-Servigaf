@@ -6,7 +6,6 @@ use App\Http\Requests\admin\StoreProductsRequest;
 use App\Http\Requests\admin\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -70,13 +69,14 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param StoreProductsRequest $request
+     * @param UpdateProductRequest $request
      * @param Product $product
      * @return RedirectResponse
      */
     public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
-        $path = $request->file('image')->store('images/products');
+        // Esto me parece tonto, pero no puedo encontrar una mejor solucion.
+        $path = str_replace('public/', '', $request->file('image')->store('public/images/products'));
 
         $product->fill($request->validated());
         $product->img_path = $path;
