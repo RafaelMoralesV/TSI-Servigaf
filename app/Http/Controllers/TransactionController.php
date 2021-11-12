@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class TransactionController extends Controller
 {
@@ -25,12 +23,12 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Transaction $transaction
+     * @return View
      */
-    public function show($id)
+    public function show(Transaction $transaction): View
     {
-        //
+        return view('admin.transactions.show', compact('transaction'));
     }
 
 }
