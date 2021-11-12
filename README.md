@@ -1,3 +1,17 @@
+#Quickstart Guide:
+Para poder inicializar la aplicacion de forma rapida, sigue los siguientes pasos:
+
+```shell
+$ composer install            # Instala laravel y dependencias
+$ npm install                 # Instala tailwind y frontend
+$ cp .env.example .env        # Genera un archivo .env por defecto
+$ php artisan key:generate    # Genera una llave para la aplicacion
+$ php artisan storage:link    # Enlace simbolico para las imagenes
+                              # de productos que suba el admin
+$ php artisan migrate --seed  # Genera las tablas de la base de datos
+                              # y las puebla
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
