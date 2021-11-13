@@ -39,7 +39,13 @@ class ProductController extends Controller
      */
     public function store(StoreProductsRequest $request): RedirectResponse
     {
-        Product::create($request->validated());
+        $product = (new Product())->fill($request->validated());
+        if($image = $request->file('image')){
+            $path = $image->store('public/images/products');
+            $product->img_path = str_replace('public', 'storage', $path);
+        }
+
+        $product->save();
 
         return redirect()->route('products.index');
     }
@@ -76,11 +82,12 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
         // Esto me parece tonto, pero no puedo encontrar una mejor solucion.
-        $path = str_replace('public', 'storage', $request->file('image')->store('public/images/products'));
+        if($image = $request->file('image')){
+            $path = $image->store('public/images/products');
+            $product->img_path = str_replace('public', 'storage', $path);
+        }
 
         $product->fill($request->validated());
-        $product->img_path = $path;
-
         $product->save();
 
         return redirect()->route('products.index')
