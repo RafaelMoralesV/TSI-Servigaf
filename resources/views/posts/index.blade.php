@@ -3,7 +3,7 @@
 @extends ('layouts.guest-navigation')
 
 @section('content')
-<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal z-0">
     <style>
         .work-sans {
             font-family: 'Work Sans', sans-serif;
@@ -185,21 +185,13 @@ Alternatively if you want to just have a single hero
 </section>
 
 <section class="bg-white py-8">
-
-    <div class="container py-8 px-6 mx-auto">
-
-        <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-8" href="#">
-        About
-    </a>
-
-    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">This template is inspired by the stunning nordic minamalist design - in particular:
-            <br>
-            <img src= "{{ asset('logos/Logo-trotter.jpg') }}">
-    </div>
-
-        <p class="mb-8">Lorem ipsum dolor sit amet, consectetur <a href="#">random link</a> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Vitae aliquet nec ullamcorper sit. Nullam eget felis eget nunc lobortis mattis aliquam. In est ante in nibh mauris. Egestas congue quisque egestas diam in. Facilisi nullam vehicula ipsum a arcu. Nec nam aliquam sem et tortor consequat. Eget mi proin sed libero enim sed faucibus turpis in. Hac habitasse platea dictumst quisque. In aliquam sem fringilla ut. Gravida rutrum quisque non tellus orci ac auctor augue mauris. Accumsan lacus vel facilisis volutpat est velit egestas dui id. At tempor commodo ullamcorper a. Volutpat commodo sed egestas egestas fringilla. Vitae congue eu consequat ac.</p>
-
-    </div>
+    <div class="container  px-6 mx-auto">
+    <div class="container mx-auto flex items-center flex-wrap  pb-12 space-x-12">
+            <img class="w-60" src= "{{ asset('logos/Logo-trotter.jpg') }}">
+            <img class="w-60" src= "{{ asset('logos/Logo-mademsa.png') }}">
+            <img  class="w-60"src= "{{ asset('logos/Logo-samsung.png') }}">
+            <img class="w-60" src= "{{ asset('logos/Logo-lg.png') }}">
+            <img class="w-60" src= "{{ asset('logos/Logo-fensa.png') }}">
 
 </section>
 
@@ -208,18 +200,36 @@ Alternatively if you want to just have a single hero
         <div class="w-full mx-auto flex flex-wrap">
             <div class="flex w-full lg:w-1/2 ">
                 <div class="px-3 md:px-0">
-                    <h3 class="font-bold text-gray-900">About</h3>
-                    <p class="py-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
-                    </p>
-                </div>
-            </div>
-            <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
-                <div class="px-3 md:px-0">
-                    <h3 class="font-bold text-gray-900">Social</h3>
+                    <h3 class="font-bold text-gray-900">Servigaf</h3>
                     <ul class="list-reset items-center pt-3">
                         <li>
-                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social links</a>
+                            <a class="no-underline hover:text-black hover:underline py-1" href=https://www.google.com/maps/place/San+Francisco+2252,+Santiago,+Regi%C3%B3n+Metropolitana/@-33.4744813,-70.6458222,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c547a0b452ef:0x66db483c6f2fc61e!8m2!3d-33.4744813!4d-70.6436282>San Francisco 2252, Santiago, Región Metropolitana</a>
+                        </li>
+                        <li class="py-4">
+                           Teléfono
+                           <br>
+                           <a class="no-underline hover:text-black hover:underline py-1" href="tel:22345678">22345678</a> 
+                        </li>
+                        <li>
+                            <a class="no-underline hover:text-black hover:underline py-1" href="#">Contáctenos</a>
+                        </li>
+                    </ul>
+                   
+
+                </div>
+            </div>
+            <div class="flex w-full lg:w-1/2 lg:justify-center">
+                <div class="px-3 md:px-0">
+                    <h3 class="font-bold text-gray-900">Información</h3>
+                    <ul class="list-reset items-center pt-3">
+                        <li>
+                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Medios de pago</a>
+                        </li>
+                        <li>
+                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Como comprar</a>
+                        </li>
+                        <li>
+                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Envios</a>
                         </li>
                     </ul>
                 </div>
