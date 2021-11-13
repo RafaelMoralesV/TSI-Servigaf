@@ -18,7 +18,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('products.store') }}" method="POST">
+                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <x-label for="name" :value="__('Nombre')"></x-label>
@@ -45,6 +45,21 @@
                                      name="price"
                                      :value="old('price')"
                                      required></x-input>
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="image" :value="__('Imagen')"></x-label>
+                            <x-input id="image" class="block mt-1 w-full"
+                                     type="file"
+                                     :value="old('image')"
+                                     name="image"></x-input>
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="description" :value="__('Descripcion del Producto')"></x-label>
+                            <x-textarea id="description" class="block mt-1 w-full "
+                                        name="description"
+                                        :value="old('description')"></x-textarea>
                         </div>
 
                         <div class="flex items-center justify-end mt-4">

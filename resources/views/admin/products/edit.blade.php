@@ -50,6 +50,7 @@
                             <x-label for="image" :value="__('Imagen')"></x-label>
                             <x-input id="image" class="block mt-1 w-full"
                                      type="file"
+                                     :value="old('image')"
                                      name="image"></x-input>
                         </div>
 

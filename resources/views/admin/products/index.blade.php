@@ -27,8 +27,7 @@
                         <thead class="bg-gray-300 font-bold">
                         <tr>
                             <th>{{ __('ID') }}</th>
-                            <th>{{ __('Nombre') }}</th>
-                            <th>{{ __('Categoria') }}</th>
+                            <th>{{ __('Nombre y Categoria') }}</th>
                             <th>{{ __('Precio') }}</th>
                             <th>{{ __('Opciones') }}</th>
                         </tr>
@@ -37,8 +36,13 @@
                         @forelse($products as $product)
                             <tr class="text-center {{ $loop->index % 2 == 1 ? 'bg-gray-100' : '' }}">
                                 <th scope="row" class="py-5">{{ $product->id }}</th>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->category }}</td>
+                                <td class="py-2 flex content-center">
+                                    <img class="w-12 h-12 rounded ml-5 mr-10" src="{{ asset($product->img_path) }}" alt="...">
+                                    <div class="flex flex-col">
+                                        <div class="font-bold">{{ $product->name }}</div>
+                                        <div class="italic">{{ $product->category }}</div>
+                                    </div>
+                                </td>
                                 <td>{{ $product->price }}</td>
                                 <td>
                                     <div class="flex flex-row justify-center">
