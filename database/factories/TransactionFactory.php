@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Client;
+use App\Models\Order;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,6 +28,7 @@ class TransactionFactory extends Factory
             'was_payed' => false,
             'was_received' => false,
             'extra' => $this->faker->text,
+            'final_price' => $this->faker->numberBetween(50, 100) * 1000
         ];
     }
 }

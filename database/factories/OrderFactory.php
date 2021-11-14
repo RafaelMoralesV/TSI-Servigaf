@@ -27,6 +27,7 @@ class OrderFactory extends Factory
             'transaction_id' => Transaction::get()->random(),
             'product_id' => Product::get()->random(),
             'amount' => $this->faker->numberBetween(0, 30),
+            'total_price' => $this->faker->numberBetween(15, 30) * 1000,
         ];
     }
 }

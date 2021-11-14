@@ -12,6 +12,10 @@ $ php artisan migrate --seed  # Genera las tablas de la base de datos
                               # y las puebla
 ```
 
+Luego de seedear (poblar) la base de datos, el admin por defecto tendra los siguientes campos:
+    email: email@mailinator.com
+    password: password
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
