@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\StoreProductsRequest;
 use App\Http\Requests\admin\UpdateProductRequest;
 use App\Models\Product;

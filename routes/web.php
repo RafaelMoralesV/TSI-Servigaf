@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\ClientController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GuestController::class, 'index']);
 
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
@@ -27,13 +24,10 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::resource('products', ProductController::class)->except('show');
     Route::resource('transactions', TransactionController::class)
         ->only(['index', 'show']);
-    Route::resource('clients', ClientController::class);
 });
 
 Route::get('/posts', function () {
     return view('posts.index');
 });
-
-Route::get('/guest', [GuestController::class, 'index']);
 
 require __DIR__.'/auth.php';
