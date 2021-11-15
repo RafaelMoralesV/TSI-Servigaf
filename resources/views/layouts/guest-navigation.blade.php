@@ -7,6 +7,7 @@
     <title>Posty</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @livewireStyles
 
 </head>
 <body class="flex flex-wrap place-items-top h-screen z-20">
@@ -145,7 +146,9 @@
         </a>
     </nav>
 
-@yield('content')
+    @yield('content')
 
+</section>
+@livewireScripts
 </body>
 </html>

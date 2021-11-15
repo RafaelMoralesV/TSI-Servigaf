@@ -20,15 +20,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 //        User::factory(10)->create();
-        User::create([
+        User::factory(1)->create([
             'name' => "Base admin",
             'email' => "email@mailinator.com",
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
         ]);
 
-        Product::factory(10)->create();
+        Product::factory(50)->create();
 
         Client::factory(10)->create()->each(function ($client){
             Transaction::factory(1)->create([
