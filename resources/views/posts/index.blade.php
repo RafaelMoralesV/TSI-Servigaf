@@ -157,7 +157,7 @@ Alternatively if you want to just have a single hero
         @foreach ($featured_products as $product)
         <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
             
-            <a href="#">
+            <a href="{{url(''.$product->category.'/'.$product->name)}}">
                 <img class="hover:grow hover:shadow-lg" src="{{ asset($product->img_path) }}">
                 <div class="pt-3 flex items-center justify-between">
                     <p class="">{{$product->name}}</p>

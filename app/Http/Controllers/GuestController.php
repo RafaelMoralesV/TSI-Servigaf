@@ -18,6 +18,24 @@ class GuestController extends Controller
         return view('posts.index', compact('featured_products'));
     }
 
+    public function productview($category, $name)
+    {
+        if(Product::where('category',$category)->exists())
+        {
+            if(Product::where('name',$name)->exists())
+            {
+                $product = Product::where('name',$name)->first();
+                return view('posts.productview', compact('product'));
+            }
+            else{
+                return redirect('/')->with('status', "link incorrecto");
+            }
+        }
+        else{
+            return redirect('/')->with('status', "link incorrecto");
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
