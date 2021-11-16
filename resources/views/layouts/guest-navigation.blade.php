@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device=width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Posty</title>
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-</head>
-<body class="flex flex-wrap place-items-top h-screen z-20 w-screen">
 <section class="w-full">
     <!-- navbar -->
     <nav class="flex justify-between bg-white text-black w-full">
@@ -39,14 +27,6 @@
         </div>
         <!-- Header Icons -->
         <div class="hidden xl:flex items-center space-x-5 items-center mr-5 lg:mr-44 ">
-            {{-- Icono corazon --}}
-            {{-- <a class="hover:text-gray-200" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-            </a> --}}
             <a class="flex items-center hover:text-gray-200" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
@@ -146,8 +126,4 @@
             </svg>
         </a>
     </nav>
-
-@yield('content')
-
-</body>
-</html>
+</section>
