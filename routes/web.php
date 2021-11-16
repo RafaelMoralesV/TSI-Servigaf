@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [GuestController::class, 'index'])->name("landing");
-
-
+Route::get('product/{product}', [GuestController::class, 'show'])->name('guest.product.show');
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
@@ -38,4 +37,3 @@ Route::get('/welcome', function (){
     return view('welcome');
 });
 
-Route::get('{category}/{name}', [GuestController::class, 'productview']);

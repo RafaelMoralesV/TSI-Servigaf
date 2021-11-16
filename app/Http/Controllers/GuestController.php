@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 use App\Models\Product;
 
 class GuestController extends Controller
@@ -10,95 +10,23 @@ class GuestController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $featured_products = Product::where('is_featured', '1') ->take(8)->get();
         return view('posts.index', compact('featured_products'));
     }
 
-    public function productview($category, $name)
-    {
-        if(Product::where('category',$category)->exists())
-        {
-            if(Product::where('name',$name)->exists())
-            {
-                $product = Product::where('name',$name)->first();
-                return view('posts.productview', compact('product'));
-            }
-            else{
-                return redirect('/')->with('status', "link incorrecto");
-            }
-        }
-        else{
-            return redirect('/')->with('status', "link incorrecto");
-        }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return View
      */
-    public function show($id)
+    public function show(Product $product): View
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('posts.show', compact('product'));
     }
 }
