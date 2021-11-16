@@ -9,7 +9,7 @@
             <label>
                 <input
                     class="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                    type="search" name="search" placeholder="Buscar">
+                    type="search" name="search" placeholder="{{ __('Buscar') }}">
             </label>
             <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
                 <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,6 @@
                   </svg>
             </button>
         </div>
-
     </div>
     <!-- Header Icons -->
     <div class="hidden xl:flex items-center space-x-5 items-center mr-5 lg:mr-44 ">
@@ -39,7 +38,7 @@
                     </span>
         </a>
         <!-- Sign In / Register      -->
-        <a class="flex items-center hover:text-gray-200" href="{{route("login")}}">
+        <a class="flex items-center hover:text-gray-200" href="{{ route("login") }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:text-gray-200" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -52,10 +51,8 @@
     <div class="px-5 xl:px-12 py-6 flex w-full items-center lg:ml-24 ">
         <!-- Nav Links -->
         <ul class="hidden md:flex px-6 mx-left ml-5 font-semibold font-heading space-x-12">
-
             <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 1</a>
                 <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-
                     <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
                         <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
                         <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
@@ -67,7 +64,6 @@
             </li>
             <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 2</a>
                 <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-
                     <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
                         <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
                         <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
@@ -91,7 +87,6 @@
             </li>
             <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 4</a>
                 <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-
                     <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
                         <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
                         <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
@@ -102,8 +97,6 @@
                 </div>
             </li>
         </ul>
-
-
     </div>
     <!-- Responsive navbar -->
     <a class="xl:hidden flex mr-6 items-center" href="#">
