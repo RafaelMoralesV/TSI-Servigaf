@@ -22,14 +22,14 @@
               <span class="mr-3 mt-8">Medios de pago:</span>
               <img class="w-20 ml-6" src= "{{ asset('logos/webpay-cl.jpg') }}">
             </div>
-            <div class="flex ml-6 items-center">  
+            <div class="flex ml-6 items-center">
             </div>
           </div>
           <div class="flex">
-            
+
 
             @livewire('counter', ['product' => $product])
-          
+
             <label for="agregaralcarro"></label>
             <button id="agregaralcarro" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">Agregar al carro</button>
             <div  class="flex items-center ml-12 mt-6 mr-14">
@@ -38,23 +38,23 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
             </svg>
-            
+
             </div>
         </div>
 
       </div>
-      
+
     </div>
     <div class=" flex justify-center ">
     <div class="box-border w-3/5 p-4 border-4 justify-center mt-40 md:box-content">
-      
+
     <p class="text-3x1 title-font text-gray-500 tracking-widest text-center font-medium">DETALLES DEL PRODUCTO</p>
     <br>
-    <p class="text-base text-gray-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio deserunt in ut ipsam! Facere iure, esse expedita dolor pariatur odio nobis, beatae dignissimos, impedit voluptatibus commodi sequi unde at magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ex tempora hic vitae doloribus iste vero, quae nam blanditiis error velit repellendus accusantium qui non maiores rerum rem, minus iusto? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore id, deleniti veritatis velit nobis sit blanditiis quibusdam similique voluptate doloremque, nostrum consectetur veniam ullam iure explicabo fugit! Suscipit, aperiam sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo numquam quos fugit. Quos veritatis, explicabo assumenda voluptatem, ea accusantium nesciunt sapiente ipsa quae animi error officia nam nisi aperiam beatae. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto aliquid adipisci corrupti repudiandae voluptas ad commodi, facilis perferendis sint debitis, esse quisquam culpa expedita aliquam perspiciatis obcaecati nam iure error. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quidem sunt sequi deleniti quos modi eos earum, excepturi voluptate quam rerum. Quae optio dolor nulla enim eveniet iusto molestias laboriosam.</p>
-  
+    <p class="text-base text-gray-900 ">{{ $product->description }}</p>
+
   </div>
   </div>
-    
+
     @livewireScripts
   </section>
   <style>
@@ -67,11 +67,11 @@
       position: relative;
       left: 40px;
     }
-  
+
     .custom-number-input input:focus {
       outline: none !important;
     }
-  
+
     .custom-number-input button:focus {
       outline: none !important;
     }
