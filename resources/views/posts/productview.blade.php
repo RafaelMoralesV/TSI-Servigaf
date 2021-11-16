@@ -35,7 +35,7 @@
                     <span class="title-font font-medium text-2xl text-gray-900">${{$product->price}}</span>
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                         <div class="flex">
-                            <span class="mr-3 mt-8">Medios de pago:</span>
+                            <span class="mr-3 mt-8">{{ __('Medios de pago:') }}</span>
                             <img class="w-20 ml-6" src="{{ asset('logos/webpay-cl.jpg') }}" alt="Webpay">
                         </div>
                         <div class="flex ml-6 items-center">
