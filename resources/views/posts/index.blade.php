@@ -173,41 +173,41 @@
 
 </section>
 
-<footer class="bg-gray-900 py-8 border-t border-gray-400 w-full">
-    <div class="container flex px-3 py-8 ">
-        <div class="mx-auto flex flex-wrap">
-            <div class="flex lg:w-1/2 ">
+<footer class="bg-gray-900 py-8 border-t border-gray-400 w-full justify-center">
+    <div class="">
+        <div class="flex">
+            <div class="flex lg:w-1/2 justify-center ">
                 <div class="px-3 md:px-0">
-                    <h3 class="font-bold text-gray-900">Servigaf</h3>
-                    <ul class="list-reset items-center pt-3">
+                    <h3 class="font-bold text-white">Servigaf</h3>
+                    <ul class="list-reset items-center pt-3 text-white">
                         <li>
-                            <a class="no-underline hover:text-black hover:underline py-1" href=https://www.google.com/maps/place/San+Francisco+2252,+Santiago,+Regi%C3%B3n+Metropolitana/@-33.4744813,-70.6458222,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c547a0b452ef:0x66db483c6f2fc61e!8m2!3d-33.4744813!4d-70.6436282>San Francisco 2252, Santiago, Región Metropolitana</a>
+                            <a class="no-underline hover:text-gray-200 hover:underline py-1 " href=https://www.google.com/maps/place/San+Francisco+2252,+Santiago,+Regi%C3%B3n+Metropolitana/@-33.4744813,-70.6458222,17z/data=!3m1!4b1!4m5!3m4!1s0x9662c547a0b452ef:0x66db483c6f2fc61e!8m2!3d-33.4744813!4d-70.6436282>San Francisco 2252, Santiago, Región Metropolitana</a>
                         </li>
                         <li class="py-4">
                            Teléfono
                            <br>
-                           <a class="no-underline hover:text-black hover:underline py-1" href="tel:22345678">22345678</a> 
+                           <a class="no-underline hover:text-gray-200 hover:underline py-1" href="tel:22345678">22345678</a> 
                         </li>
                         <li>
-                            <a class="no-underline hover:text-black hover:underline py-1" href="#">Contáctenos</a>
+                            <a class="no-underline hover:text-gray-200 hover:underline py-1" href="#">Contáctenos</a>
                         </li>
                     </ul>
                    
 
                 </div>
             </div>
-            <div class="flex w-full lg:w-1/2 lg:justify-center">
+            <div class="flex w-full lg:w-1/2 lg:justify-center text-white">
                 <div class="px-3 md:px-0">
                     <h3 class="font-bold text-gray-900">Información</h3>
                     <ul class="list-reset items-center pt-3">
                         <li>
-                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Medios de pago</a>
+                            <a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="#">Medios de pago</a>
                         </li>
                         <li>
-                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Como comprar</a>
+                            <a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="#">Como comprar</a>
                         </li>
                         <li>
-                            <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Envios</a>
+                            <a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="#">Envios</a>
                         </li>
                     </ul>
                 </div>
