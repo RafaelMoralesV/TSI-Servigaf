@@ -7,15 +7,16 @@
     <title>Posty</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @livewireStyles
 
 </head>
-<body class="flex flex-wrap place-items-top h-screen z-20">
-<section class="relative mx-auto">
+<body class="flex flex-wrap place-items-top h-screen z-20 w-screen">
+<section class="w-full">
     <!-- navbar -->
-    <nav class="flex justify-between bg-white text-black w-screen">
+    <nav class="flex justify-between bg-white text-black w-full">
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+            <div class="lg:ml-24">
             <x-application-logo></x-application-logo>
+        </div>
             <!-- < Barra de busqueda > -->
             <div class="pt-2 relative mx-auto text-gray-600">
                 <label>
@@ -37,7 +38,7 @@
 
         </div>
         <!-- Header Icons -->
-        <div class="hidden xl:flex items-center space-x-5 items-center mr-5">
+        <div class="hidden xl:flex items-center space-x-5 items-center mr-5 lg:mr-44 ">
             {{-- Icono corazon --}}
             {{-- <a class="hover:text-gray-200" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
@@ -68,8 +69,8 @@
             </a>
         </div>
     </nav>
-    <nav class="flex justify-between bg-gray-900 text-white w-screen">
-        <div class="px-5 xl:px-12 py-6 flex w-full items-center ">
+    <nav class="flex justify-between bg-gray-900 text-white w-full">
+        <div class="px-5 xl:px-12 py-6 flex w-full items-center lg:ml-24 ">
             <!-- Nav Links -->
             <ul class="hidden md:flex px-6 mx-left ml-5 font-semibold font-heading space-x-12">
 
@@ -146,9 +147,7 @@
         </a>
     </nav>
 
-    @yield('content')
+@yield('content')
 
-</section>
-@livewireScripts
 </body>
 </html>
