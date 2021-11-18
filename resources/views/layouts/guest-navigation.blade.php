@@ -48,54 +48,13 @@
     </div>
 </nav>
 <nav class="flex justify-between bg-gray-900 text-white w-full">
-    <div class="px-5 xl:px-12 py-6 flex w-full items-center lg:ml-24 ">
+    <div class="px-5 xl:px-12 flex w-full items-center lg:ml-24 ">
         <!-- Nav Links -->
         <ul class="hidden md:flex px-6 mx-left ml-5 font-semibold font-heading space-x-12">
-            <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 1</a>
-                <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-                    <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
-                        <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 3</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 4</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 5</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 2</a>
-                <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-                    <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
-                        <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 3</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 4</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 5</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 3</a>
-                <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-
-                    <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
-                        <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 3</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 4</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 5</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="group relative dropdown hover:text-gray-200 tracking-wide"><a href="#">Categoria 4</a>
-                <div class="group-hover:block dropdown-menu absolute hidden h-auto z-30">
-                    <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
-                        <li class="py-1"><a class="block cursor-pointer">Item 1</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 2</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 3</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 4</a></li>
-                        <li class="py-1"><a class="block cursor-pointer">Item 5</a></li>
-                    </ul>
-                </div>
-            </li>
+            <x-guest.nav-link>{{ __('Categoria 1') }}</x-guest.nav-link>
+            <x-guest.nav-link>{{ __('Categoria 2') }}</x-guest.nav-link>
+            <x-guest.nav-link>{{ __('Categoria 3') }}</x-guest.nav-link>
+            <x-guest.nav-link>{{ __('Categoria 4') }}</x-guest.nav-link>
         </ul>
     </div>
     <!-- Responsive navbar -->
