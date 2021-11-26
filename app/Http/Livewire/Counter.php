@@ -51,6 +51,6 @@ class Counter extends Component
             $this->product->price,
         )->associate('Product');
 
-        $this->emit('added_to_cart');
+        $this->emit('cart_updated');
     }
 }

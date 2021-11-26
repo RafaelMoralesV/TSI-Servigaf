@@ -1,3 +1,3 @@
 <div>
-    Cart ({{$cart_count}})
+    ({{$cart_count}})
 </div>

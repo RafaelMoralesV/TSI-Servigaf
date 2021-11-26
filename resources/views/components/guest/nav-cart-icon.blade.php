@@ -1,3 +1,4 @@
+<div>
 <a {{ $attributes->merge(['class' => "flex py-4 mr-6 items-center"]) }} href="#">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:text-gray-200" fill="none" viewBox="0 0 24 24"
          stroke="currentColor">
@@ -9,6 +10,7 @@
         <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
     </span>
-    <div> @livewire('cart-counter')</div>
+    <livewire:cart-counter>
 </a>
+</div>
 
