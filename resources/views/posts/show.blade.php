@@ -42,12 +42,12 @@
                         </div>
                     </div>
                     <div class="flex">
-                        <livewire:counter :product="$product"/>
-                        <label for="agregaralcarro"></label>
-                        <button id="agregaralcarro"
-                                class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
-                            Agregar al carro
-                        </button>
+                        <form wire.submit.prevent="addToCart({{$product}})" action="" method="POST" >
+                            <livewire:counter :product="$product"/>
+
+                        </form>
+                        
+                        
                         <div class="flex items-center ml-12 mt-6 mr-14">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor">
