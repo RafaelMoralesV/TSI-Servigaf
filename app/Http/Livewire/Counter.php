@@ -10,31 +10,47 @@ class Counter extends Component
 {
     public $count = 0;
     public Product $product;
- 
+    public $errorMessage;
+
     public function increment()
-    {  
-        if($this->product->stock > $this->count){
-        $this->count++;
+    {
+        if ($this->product->stock > $this->count) {
+            $this->count++;
         }
     }
+
     public function decrement()
-    {  
-        if($this->count > 0){
-        $this->count--;
+    {
+        if ($this->count > 0) {
+            $this->count--;
         }
     }
- 
+
     public function render()
     {
-        return view('livewire.counter');
+        $cart = Cart::content();
+
+        return view('livewire.counter', compact('cart'));
     }
+
     public function addToCart()
-    {   
+    {
+        if($this->product->stock < $this->count){
+            $this->count = $this->product->stock;
+        }
+
+        if($this->count <= 0){
+            $this->errorMessage = "La cantidad elegida es invalida.";
+            return;
+        }
+
         Cart::add(
-            $product->id,
-            $product->name,
+            $this->product->id,
+            $this->product->name,
             $this->count,
-            $product->price,
-        );
+            $this->product->price,
+        )->associate('Product');
+
+        $this->emit('added_to_cart');
     }
 }
