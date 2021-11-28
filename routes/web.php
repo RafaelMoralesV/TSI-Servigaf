@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [GuestController::class, 'index'])->name("landing");
 Route::get('product/{product}', [GuestController::class, 'show'])->name('guest.product.show');
+Route::get('/Cart', [GuestController::class, 'show_cart'])->name('mostrar_carro');
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
@@ -36,4 +37,5 @@ require __DIR__.'/auth.php';
 Route::get('/welcome', function (){
     return view('welcome');
 });
+
 

@@ -1,5 +1,4 @@
-<div>
-<a {{ $attributes->merge(['class' => "flex py-4 mr-6 items-center"]) }} href="#">
+<a {{ $attributes->merge(['class' => "flex py-4 mr-6 items-center"]) }} href="{{route('mostrar_carro')}}">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:text-gray-200" fill="none" viewBox="0 0 24 24"
          stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -12,5 +11,3 @@
     </span>
     <livewire:cart-counter>
 </a>
-</div>
-

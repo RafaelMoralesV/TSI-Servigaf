@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class GuestController extends Controller
 {
@@ -28,5 +29,11 @@ class GuestController extends Controller
     public function show(Product $product): View
     {
         return view('posts.show', compact('product'));
+    }
+
+    public function show_cart(): View
+    {
+        $products = Cart::content();
+        return view('posts.mostrarCarro', compact('products'));
     }
 }
