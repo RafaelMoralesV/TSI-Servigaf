@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
+
 class Counter extends Component
 {
     public $count = 0;
@@ -52,5 +53,9 @@ class Counter extends Component
         )->associate('Product');
 
         $this->emit('cart_updated');
+    }
+    public function removeFromCart(String $rowid)
+    {   
+        Cart::remove($rowid);
     }
 }

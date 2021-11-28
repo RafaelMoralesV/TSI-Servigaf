@@ -25,11 +25,12 @@
                                 <td>
                                     <div class="flex flex-row justify-center">
                                         
-                                        
+                                        <form wire:submit.prevent="removeFromCart({{$product->rowid}})" >
                                             <button type="submit"
                                                     class="mr-3 text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                                 {{ __('Eliminar') }}
                                             </button>
+                                        </form>
                                         
                                     </div>
                                 </td>
