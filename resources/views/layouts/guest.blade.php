@@ -20,7 +20,7 @@
 </head>
 <body class="flex flex-col min-h-screen">
 @include('layouts.guest-navigation')
-<main class="font-sans text-gray-900 antialiased mb-auto">
+<main class="flex-grow flex flex-col font-sans text-gray-900 antialiased">
     {{ $slot }}
 </main>
 <footer class="bg-gray-900 py-8 border-t border-gray-400 w-full justify-center">
