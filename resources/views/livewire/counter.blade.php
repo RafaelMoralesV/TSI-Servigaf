@@ -1,7 +1,5 @@
 <div>
-    @error('quantity')
-    <div>{{ $message }}</div>
-    @enderror
+    @error('quantity') <x-alerts.error :message="$message" /> @enderror
     <div class=" flex imput-group text-center mb-3 ml-24">
         <div class="custom-number-input h-10 w-32">
             <label for="custom-input-number" class="w-full text-gray-700 text-sm font-semibold">Cantidad</label>
