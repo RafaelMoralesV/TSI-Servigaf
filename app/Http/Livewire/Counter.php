@@ -54,8 +54,4 @@ class Counter extends Component
 
         $this->emit('cart_updated');
     }
-    public function removeFromCart(String $rowid)
-    {   
-        Cart::remove($rowid);
-    }
 }
