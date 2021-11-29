@@ -9,9 +9,24 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class Counter extends Component
 {
-    public $count = 0;
+    public $count;
     public Product $product;
-    public $errorMessage;
+
+    public function mount()
+    {
+        $this->count = Cart::content()->where('id', $this->product->id)->first()->qty ?? 0;
+    }
+
+    public function render()
+    {
+        $is_in_cart = Cart::content()->where('id', $this->product->id)->count();
+
+        if($this->product->stock < $this->count){
+            $this->count = $this->product->stock;
+        }
+
+        return view('livewire.counter', compact('is_in_cart'));
+    }
 
     public function increment()
     {
@@ -27,21 +42,10 @@ class Counter extends Component
         }
     }
 
-    public function render()
+    public function add_to_cart()
     {
-        $cart = Cart::content();
-
-        return view('livewire.counter', compact('cart'));
-    }
-
-    public function addToCart()
-    {
-        if($this->product->stock < $this->count){
-            $this->count = $this->product->stock;
-        }
-
         if($this->count <= 0){
-            $this->errorMessage = "La cantidad elegida es invalida.";
+            $this->addError('quantity', 'La cantidad deseada no es valida.');
             return;
         }
 
@@ -51,6 +55,29 @@ class Counter extends Component
             $this->count,
             $this->product->price,
         )->associate('Product');
+
+        $this->emit('cart_updated');
+    }
+
+    public function update_cart()
+    {
+        if($this->count <= 0){
+            $this->addError('quantity', 'La cantidad deseada no es valida.');
+            return;
+        }
+
+        $rowId = Cart::content()->where('id', $this->product->id)->first()->rowId;
+
+        Cart::update($rowId, $this->count);
+        $this->emit('cart_updated');
+    }
+
+    public function delete_from_cart()
+    {
+        $rowId = Cart::content()->where('id', $this->product->id)->first()->rowId;
+
+        Cart::remove($rowId);
+        $this->count = 0;
 
         $this->emit('cart_updated');
     }
