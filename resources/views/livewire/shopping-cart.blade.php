@@ -1,3 +1,4 @@
+<div class='flex flex-col'>
 <table class="w-full bg-white shadow-md rounded mb-4">
     <thead class="bg-gray-300 font-bold">
     <tr>
@@ -39,5 +40,10 @@
             <td>None</td>
         </tr>
     @endforelse
+
     </tbody>
 </table>
+<h3 class= 'w-full text-right'>
+Total:{{$total}}
+</h3>
+</div>

@@ -10,11 +10,15 @@ class ShoppingCart extends Component
     public function render()
     {
         $products = Cart::content();
-        return view('livewire.shopping-cart', compact('products'));
+        $total = Cart::subtotal(0);
+        return view('livewire.shopping-cart', compact('products','total'));
     }
 
     public function remove_from_cart(String $rowId)
     {
         Cart::remove($rowId);
+        $this->emit('cart_updated');
     }
+
+
 }
