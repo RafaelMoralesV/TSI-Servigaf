@@ -20,20 +20,24 @@
         </div>
         @if(!$is_in_cart)
             <label for="agregar"></label>
-            <button type="button" id="agregar" wire:click="add_to_cart()"
+            <div class="ml-8">
+                <button type="button" id="agregar" wire:click="add_to_cart()"
                     class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
-                Agregar al carro
-            </button>
+                    Agregar al carro
+                </button>
+            </div>
         @else
+            <div class="ml-8">
             <label for="actualizar"></label>
             <button type="button" id="actualizar" wire:click="update_cart()"
                     class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
-                Actualizar el carro
+                Actualizar carro
             </button><label for="eliminar"></label>
             <button type="button" id="eliminar" wire:click="delete_from_cart()"
                     class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
                 Quitar del Carro
             </button>
+            </div>
         @endif
     </div>
 </div>
