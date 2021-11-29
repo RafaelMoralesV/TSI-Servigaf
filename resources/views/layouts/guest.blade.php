@@ -18,11 +18,11 @@
 <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 @include('layouts.guest-navigation')
-<div class="font-sans text-gray-900 antialiased">
+<main class="font-sans text-gray-900 antialiased mb-auto">
     {{ $slot }}
-</div>
+</main>
 <footer class="bg-gray-900 py-8 border-t border-gray-400 w-full justify-center">
     <div class="">
         <div class="flex">
