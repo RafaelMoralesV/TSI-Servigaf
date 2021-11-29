@@ -29,6 +29,7 @@
                             <th>{{ __('ID') }}</th>
                             <th>{{ __('Nombre y Categoria') }}</th>
                             <th>{{ __('Precio') }}</th>
+                            <th>{{ __('Stock') }}</th>
                             <th>{{ __('Destacar') }}</th>
                             <th>{{ __('Opciones') }}</th>
                         </tr>
@@ -45,7 +46,8 @@
                                     </div>
                                 </td>
                                 <td>{{ $product->price }}</td>
-                                <td><livewire:make-featured :product="$product"></livewire:make-featured></td>
+                                <td>{{ $product->stock }} ud.</td>
+                                <td><livewire:make-featured :product="$product" /></td>
                                 <td>
                                     <div class="flex flex-row justify-center">
                                         <a type="button"

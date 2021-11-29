@@ -6,19 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\StoreProductsRequest;
 use App\Http\Requests\admin\UpdateProductRequest;
 use App\Models\Product;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function index(): View
     {
-        $products = Product::paginate(10);
+        $products = Product::orderBy('is_featured', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->orderBy('stock', 'desc')
+            ->paginate(10);
         return view('admin.products.index', ['products' => $products]);
     }
 
@@ -41,7 +46,7 @@ class ProductController extends Controller
     public function store(StoreProductsRequest $request): RedirectResponse
     {
         $product = (new Product())->fill($request->validated());
-        if($image = $request->file('image')){
+        if ($image = $request->file('image')) {
             $path = $image->store('public/images/products');
             $product->img_path = str_replace('public', 'storage', $path);
         }
@@ -49,17 +54,6 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('products.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Product $product
-     * @return View
-     */
-    public function show(Product $product): View
-    {
-        return view('admin.products.show', ['product' => $product]);
     }
 
     /**
@@ -83,7 +77,7 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
         // Esto me parece tonto, pero no puedo encontrar una mejor solucion.
-        if($image = $request->file('image')){
+        if ($image = $request->file('image')) {
             $path = $image->store('public/images/products');
             $product->img_path = str_replace('public', 'storage', $path);
         }

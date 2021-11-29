@@ -41,9 +41,18 @@
                         <div class="mt-4">
                             <x-label for="price" :value="__('Precio')"></x-label>
                             <x-input id="price" class="block mt-1 w-full"
-                                     type="text"
+                                     type="number"
                                      name="price"
                                      :value="old('price')"
+                                     required></x-input>
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="stock" :value="__('Stock Inicial')"></x-label>
+                            <x-input id="stock" class="block mt-1 w-full"
+                                     type="number"
+                                     name="stock"
+                                     :value="old('stock') ?? 0"
                                      required></x-input>
                         </div>
 

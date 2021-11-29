@@ -47,6 +47,15 @@
                         </div>
 
                         <div class="mt-4">
+                            <x-label for="stock" :value="__('Stock')"></x-label>
+                            <x-input id="stock" class="block mt-1 w-full"
+                                     type="number"
+                                     name="stock"
+                                     :value="old('stock') ?? 0"
+                                     required></x-input>
+                        </div>
+
+                        <div class="mt-4">
                             <x-label for="image" :value="__('Imagen')"></x-label>
                             <x-input id="image" class="block mt-1 w-full"
                                      type="file"
