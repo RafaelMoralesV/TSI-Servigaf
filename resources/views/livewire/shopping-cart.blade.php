@@ -43,7 +43,18 @@
 
     </tbody>
 </table>
-<h3 class= 'w-full text-right'>
-Total:{{$total}}
-</h3>
+    <div class="flex items-center justify-end mt-4">
+        <h3>{{ __('Total: $') . $total }} </h3>
+        <button type="button"
+                @if($products->isNotEmpty())
+                onclick="window.location='{{ route('client.create') }}'"
+                class="ml-3 flex w-min h-min text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-sm mr-2"
+                @else
+                disabled
+                class="ml-3 flex w-min h-min text-white bg-red-300 border-0 py-2 px-6 rounded text-sm mr-2 cursor-default"
+            @endif
+        >
+            {{ __('Ir al Checkout') }}
+        </button>
+    </div>
 </div>
