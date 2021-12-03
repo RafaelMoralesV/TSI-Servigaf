@@ -17,9 +17,9 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Client::class);
-            $table->boolean('was_payed');
-            $table->boolean('was_received');
-            $table->text('extra');
+            $table->boolean('was_payed')->default(FALSE);
+            $table->boolean('was_received')->default(FALSE);
+            $table->text('extra')->nullable();
             $table->timestamps();
         });
     }
