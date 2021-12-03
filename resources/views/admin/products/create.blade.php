@@ -12,7 +12,9 @@
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
-                                    <li><x-alerts.error>{{ $error }}</x-alerts.error></li>
+                                    <li>
+                                        <x-alerts.error :message="$error"/>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
