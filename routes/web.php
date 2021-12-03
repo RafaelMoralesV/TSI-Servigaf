@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\CreateClientController;
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GuestController::class, 'index'])->name("landing");
 Route::get('product/{product}', [GuestController::class, 'show'])->name('guest.product.show');
 Route::get('/Cart', [GuestController::class, 'show_cart'])->name('mostrar_carro');
+
+Route::resource('client', CreateClientController::class)->only(['create', 'store']);
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');

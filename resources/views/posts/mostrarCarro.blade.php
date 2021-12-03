@@ -5,8 +5,17 @@
                 <div class="p-6 bg-white">
                     <livewire:shopping-cart/>
                     <div class='text-center'>
-                            <a href="#" class="flex ml-auto w-min h-min text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2 ">
-                             Ir al Checkout</a>
+                        <button type="button"
+                                @if($products->isNotEmpty())
+                                onclick="window.location='{{ route('client.create') }}'"
+                                class="flex ml-auto w-min h-min text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2"
+                                @else
+                                disabled
+                                class="flex ml-auto w-min h-min text-white bg-red-300 border-0 py-2 px-6 rounded mt-6 text-sm mr-2 cursor-default"
+                            @endif
+                        >
+                            {{ __('Ir al Checkout') }}
+                        </button>
                     </div>
                 </div>
             </div>

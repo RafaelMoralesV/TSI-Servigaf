@@ -34,6 +34,7 @@ class GuestController extends Controller
     public function show_cart(): View
     {
         $products = Cart::content();
-        return view('posts.mostrarCarro', compact('products'));
+        $total = Cart::subtotal(0);
+        return view('posts.mostrarCarro', compact('products', 'total'));
     }
 }
