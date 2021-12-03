@@ -52,7 +52,7 @@
                             <x-input id="stock" class="block mt-1 w-full"
                                      type="number"
                                      name="stock"
-                                     :value="old('stock') ?? $product->stock"
+                                     :value="old('stock') ?? 0"
                                      required></x-input>
                         </div>
 
