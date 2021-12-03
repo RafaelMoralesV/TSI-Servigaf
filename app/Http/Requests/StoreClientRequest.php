@@ -24,7 +24,11 @@ class StoreClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string|required'
+            'name' => 'string|required',
+            'email' => 'email|required',
+            'address' => 'string|required',
+            'city' => 'string|required',
+            'phone' => 'string|required',
         ];
     }
 }

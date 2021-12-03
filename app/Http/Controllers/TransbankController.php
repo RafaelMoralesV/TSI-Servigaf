@@ -9,7 +9,8 @@ use Transbank\Webpay\WebpayPlus;
 
 class TransbankController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         if (app()->environment('production')) {
             WebpayPlus::configureForProduction(config('services.transbank.webpay_plus_cc'), config('services.transbank.webpay_plus_api_key'));
         } else {
@@ -17,16 +18,18 @@ class TransbankController extends Controller
         }
     }
 
-    public function createdTransaction(Request $request)
+    public function createdTransaction()
     {
-        $buy_order = now()->format("Ymdhis");
-        $session_id = Session::getId();
-        $amount = (int) Cart::subtotal(0, '', '');
-        $return_url = route('transbank.returnUrl');
+        $transaction = Session::get('transaction');
 
         $resp = WebpayPlus::transaction()
             ->build()
-            ->create($buy_order, $session_id, $amount, $return_url);
+            ->create(
+                $transaction->buy_order,
+                Session::getId(),
+                $transaction->final_price,
+                route('transbank.returnUrl')
+            );
 
         return view('webpayplus/transaction_created', compact('resp'));
     }
