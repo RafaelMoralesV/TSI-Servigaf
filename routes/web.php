@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\CreateClientController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\TransbankController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('product/{product}', [GuestController::class, 'show'])->name('guest.p
 Route::get('/Cart', [GuestController::class, 'show_cart'])->name('mostrar_carro');
 
 Route::resource('client', CreateClientController::class)->only(['create', 'store']);
+Route::get('payment', [TransbankController::class, 'createdTransaction'])->name('transbank');
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
 
 class CreateClientController extends Controller
 {
@@ -18,8 +18,10 @@ class CreateClientController extends Controller
         return view("clients.create", compact('cart_items'));
     }
 
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
+        $req = $request->validated();
 
+        return redirect()->route('transbank');
     }
 }
