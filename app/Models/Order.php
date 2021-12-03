@@ -11,6 +11,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['transaction_id', 'product_id', 'amount', 'total_price'];
+
     public function transaction(): BelongsTo {
         return $this->belongsTo(Transaction::class);
     }

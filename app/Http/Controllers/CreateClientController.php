@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
+use App\Models\Order;
 use App\Models\Transaction;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -35,6 +36,15 @@ class CreateClientController extends Controller
             'final_price' => (int) Cart::subtotal(0, '', ''),
             'buy_order' => now()->format("Ymdhis")
         ]);
+
+        foreach(Cart::content() as $product){
+            Order::create([
+                'transaction_id' => $transaction->id,
+                'product_id' => $product->id,
+                'amount' => $product->qty,
+                'total_price' => $product->qty * $product->price,
+            ]);
+        }
 
         return redirect()->route('transbank.create')->with('transaction', $transaction);
     }
