@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Session;
 use Transbank\Webpay\WebpayPlus;
 
 class TransbankController extends Controller
@@ -17,11 +19,23 @@ class TransbankController extends Controller
 
     public function createdTransaction(Request $request)
     {
-        $req = $request->except('_token');
+        $buy_order = now()->format("Ymdhis");
+        $session_id = Session::getId();
+        $amount = (int) Cart::subtotal(0, '', '');
+        $return_url = route('transbank.returnUrl');
+
         $resp = WebpayPlus::transaction()
             ->build()
-            ->create($req["buy_order"], $req["session_id"], $req["amount"], $req["return_url"]);
+            ->create($buy_order, $session_id, $amount, $return_url);
 
-        return view('webpayplus/transaction_created', [ "params" => $req,"response" => $resp]);
+        return view('webpayplus/transaction_created', compact('resp'));
+    }
+
+    public function commitTransaction(Request $request)
+    {
+        $req = $request->except('_token');
+        $resp = WebpayPlus::transaction()->commit($req["token_ws"]);
+
+        return view('webpayplus/transaction_committed', compact('req', 'resp'));
     }
 }

@@ -23,7 +23,12 @@ Route::get('product/{product}', [GuestController::class, 'show'])->name('guest.p
 Route::get('/Cart', [GuestController::class, 'show_cart'])->name('mostrar_carro');
 
 Route::resource('client', CreateClientController::class)->only(['create', 'store']);
-Route::get('payment', [TransbankController::class, 'createdTransaction'])->name('transbank');
+
+Route::prefix('transbank')->as('transbank.')->group(function () {
+    Route::get('payment', [TransbankController::class, 'createdTransaction'])->name('create');
+    Route::get('returnUrl', [TransbankController::class, 'commitTransaction'])->name('returnUrl');
+});
+
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');

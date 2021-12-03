@@ -22,6 +22,6 @@ class CreateClientController extends Controller
     {
         $req = $request->validated();
 
-        return redirect()->route('transbank');
+        return redirect()->route('transbank.create');
     }
 }
