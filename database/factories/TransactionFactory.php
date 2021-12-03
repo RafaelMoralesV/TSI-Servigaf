@@ -28,7 +28,8 @@ class TransactionFactory extends Factory
             'was_payed' => false,
             'was_received' => false,
             'extra' => $this->faker->text,
-            'final_price' => $this->faker->numberBetween(50, 100) * 1000
+            'final_price' => $this->faker->numberBetween(50, 100) * 1000,
+            'buy_order' => $this->faker->dateTime()->format("Ymdhis"),
         ];
     }
 }
