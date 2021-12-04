@@ -42,7 +42,10 @@ class GuestController extends Controller
     {
         $query = $request->input('search');
 
-        $products = Product::where('name', 'like', "%$query%")->get();
+        $products = Product::where('name', 'like', "%$query%")
+                            ->orWhere('category', 'like', "%$query%")
+                            ->orwhere('description', 'like', "%$query%")
+                            ->get();
 
         return view('posts.search-result')->with('products', $products);
     }
