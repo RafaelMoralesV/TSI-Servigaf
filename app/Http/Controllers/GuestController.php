@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
@@ -34,7 +35,16 @@ class GuestController extends Controller
     public function show_cart(): View
     {
         $products = Cart::content();
-        $total = Cart::subtotal(0);
-        return view('posts.mostrarCarro', compact('products', 'total'));
+        return view('posts.mostrarCarro', compact('products'));
     }
+    
+    public function search(Request $request)
+    {
+        $query = $request->input('search');
+
+        $products = Product::where('name', 'like', "%$query%")->get();
+
+        return view('posts.search-result')->with('products', $products);
+    }
+
 }
