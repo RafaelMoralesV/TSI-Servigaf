@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductSearchRequest;
 use Illuminate\Contracts\View\View;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -37,14 +38,14 @@ class GuestController extends Controller
         $products = Cart::content();
         return view('posts.mostrarCarro', compact('products'));
     }
-    
-    public function search(Request $request)
-    {
-        $query = $request->input('search');
 
-        $products = Product::where('name', 'like', "%$query%")
-                            ->orWhere('category', 'like', "%$query%")
-                            ->orwhere('description', 'like', "%$query%")
+    public function search(ProductSearchRequest $request)
+    {
+        $search_query = $request->validated()['search'];
+
+        $products = Product::where('name', 'like', "%$search_query%")
+                            ->orWhere('category', 'like', "%$search_query%")
+                            ->orwhere('description', 'like', "%$search_query%")
                             ->get();
 
         return view('posts.search-result')->with('products', $products);
