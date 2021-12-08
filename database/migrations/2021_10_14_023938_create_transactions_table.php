@@ -16,7 +16,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Client::class);
+            $table->foreignIdFor(Client::class)->constrained()->onDelete('cascade');
             $table->boolean('was_payed')->default(FALSE);
             $table->boolean('was_received')->default(FALSE);
             $table->text('extra')->nullable();
