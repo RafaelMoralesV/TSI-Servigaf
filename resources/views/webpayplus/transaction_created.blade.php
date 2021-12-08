@@ -8,6 +8,11 @@
                     {{ $resp->token }}
                     <br>
                     {{ $resp->url }}
+
+                    <form action="{{ $resp->getUrl() }}" method="POST">
+                        <input type="hidden" name="token_ws" value="{{ $resp->getToken() }}">
+                        <button type="submit">{{ __('Ir a Webpay') }}</button>
+                    </form>
                 </div>
             </div>
         </div>

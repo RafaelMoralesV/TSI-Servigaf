@@ -26,7 +26,7 @@ Route::resource('client', CreateClientController::class)->only(['create', 'store
 
 Route::prefix('transbank')->as('transbank.')->group(function () {
     Route::get('payment', [TransbankController::class, 'createdTransaction'])->name('create');
-    Route::get('returnUrl', [TransbankController::class, 'commitTransaction'])->name('returnUrl');
+    Route::any('returnUrl', [TransbankController::class, 'commitTransaction'])->name('returnUrl');
 });
 
 

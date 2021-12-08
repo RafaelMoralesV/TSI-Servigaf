@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Requests\CommitTransactionRequest;
+use App\Models\Client;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Session;
 use Transbank\Webpay\WebpayPlus;
 
 class TransbankController extends Controller
@@ -34,11 +36,26 @@ class TransbankController extends Controller
         return view('webpayplus/transaction_created', compact('resp'));
     }
 
-    public function commitTransaction(Request $request)
+    public function commitTransaction(CommitTransactionRequest $request)
     {
-        $req = $request->except('_token');
-        $resp = WebpayPlus::transaction()->commit($req["token_ws"]);
+        $req = $request->validated();
 
-        return view('webpayplus/transaction_committed', compact('req', 'resp'));
+        if ($token = $req['token_ws'] ?? null) {
+            $resp = WebpayPlus::transaction()->commit($token);
+            Transaction::where('buy_order', $resp->getBuyOrder())
+                ->first()
+                ->update(['was_payed' => true]);
+
+            return view('webpayplus/transaction_committed');
+        } else {
+            $transaction = Transaction::where('buy_order', $req['TBK_ORDEN_COMPRA'])->first();
+
+            Client::where('id', $transaction->id)->first()->delete();
+
+            $transaction->delete();
+
+            return redirect()->route('mostrar_carro');
+        }
+
     }
 }
