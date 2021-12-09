@@ -10,22 +10,24 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 class Counter extends Component
 {
     public $count;
+    public $message;
     public Product $product;
 
     public function mount()
     {
-        $this->count = Cart::content()->where('id', $this->product->id)->first()->qty ?? 0;
+        $this->count = Cart::content()->where('id', $this->product->id)->first()->qty ?? 1;
     }
 
     public function render()
     {
         $is_in_cart = Cart::content()->where('id', $this->product->id)->count();
+        $is_in_stock = $this->product->stock > 0;
 
         if($this->product->stock < $this->count){
             $this->count = $this->product->stock;
         }
 
-        return view('livewire.counter', compact('is_in_cart'));
+        return view('livewire.counter', compact('is_in_cart', 'is_in_stock'));
     }
 
     public function increment()

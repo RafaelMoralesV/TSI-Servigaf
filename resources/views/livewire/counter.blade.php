@@ -1,5 +1,9 @@
 <div>
-    @error('quantity') <x-alerts.error :message="$message" /> @enderror
+    @error('quantity')
+    <x-alerts.error :message="$message"/> @enderror
+    @if($message)
+        <x-alerts.success :message="$message"/> @endif
+    @if($is_in_stock)
     <div class=" flex imput-group text-center mb-3 ml-24">
         <div class="custom-number-input h-10 w-32">
             <label for="custom-input-number" class="w-full text-gray-700 text-sm font-semibold">Cantidad</label>
@@ -20,24 +24,28 @@
             <label for="agregar"></label>
             <div class="ml-8">
                 <button type="button" id="agregar" wire:click="add_to_cart()"
-                    class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
-                    Agregar al carro
+                        class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
+                    {{ __('Agregar al carro') }}
                 </button>
             </div>
-        @else
+        @elseif($is_in_stock)
             <div class="ml-8">
-            <label for="actualizar"></label>
-            <button type="button" id="actualizar" wire:click="update_cart()"
-                    class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
-                Actualizar carro
-            </button><label for="eliminar"></label>
-            <button type="button" id="eliminar" wire:click="delete_from_cart()"
-                    class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
-                Quitar del Carro
-            </button>
+                <label for="actualizar"></label>
+                <button type="button" id="actualizar" wire:click="update_cart()"
+                        class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
+                    {{ __('Actualizar carro') }}
+                </button>
+                <label for="eliminar"></label>
+                <button type="button" id="eliminar" wire:click="delete_from_cart()"
+                        class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded mt-6 text-sm mr-2">
+                    {{ __('Quitar del Carro') }}
+                </button>
             </div>
         @endif
     </div>
+    @else
+        <div class="italic">{{ __('Este producto no se encuentra en Stock') }}</div>
+    @endif
 </div>
 
 
