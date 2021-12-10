@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,9 +18,9 @@ class AddedCategoriesFieldToProducts extends Migration
             $table->dropColumn([
                 'category'
             ]);
-            $table->foreignIdFor(\App\Models\Category::class)
+            $table->foreignIdFor(Category::class)
                 ->nullable()
-                ->constrained()->onDelete('cascade');
+                ->constrained()->onDelete('set null');
         });
     }
 
