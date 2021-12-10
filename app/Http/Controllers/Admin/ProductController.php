@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\StoreProductsRequest;
 use App\Http\Requests\admin\UpdateProductRequest;
+use App\Models\Category;
+use App\Models\CategoryGroup;
 use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -20,7 +22,8 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        $products = Product::orderBy('is_featured', 'desc')
+        $products = Product::with('category')
+            ->orderBy('is_featured', 'desc')
             ->orderBy('updated_at', 'desc')
             ->orderBy('stock', 'desc')
             ->paginate(10);
@@ -64,7 +67,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product): View
     {
-        return view('admin.products.edit', ['product' => $product]);
+        $groups = CategoryGroup::with('categories')->get();
+        return view('admin.products.edit', compact('product', 'groups'));
     }
 
     /**
@@ -80,6 +84,12 @@ class ProductController extends Controller
         if ($image = $request->file('image')) {
             $path = $image->store('public/images/products');
             $product->img_path = str_replace('public', 'storage', $path);
+        }
+
+        if ($category = Category::where('id', $request['category'])->first()) {
+            $product->category_id = $category->id;
+        } else if ($request['category'] == "no_category") {
+            $product->category_id = null;
         }
 
         $product->fill($request->validated());

@@ -17,7 +17,9 @@ class AddedCategoriesFieldToProducts extends Migration
             $table->dropColumn([
                 'category'
             ]);
-            $table->foreignIdFor(\App\Models\Category::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(\App\Models\Category::class)
+                ->nullable()
+                ->constrained()->onDelete('cascade');
         });
     }
 

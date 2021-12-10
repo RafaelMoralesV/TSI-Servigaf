@@ -38,7 +38,7 @@
                                     <img class="w-12 h-12 rounded ml-5 mr-10" src="{{ asset($product->img_path) }}" alt="...">
                                     <div class="flex flex-col">
                                         <div class="font-bold">{{ $product->name }}</div>
-                                        <div class="italic">{{ $product->category }}</div>
+                                        <div class="italic">{{ $product->category->name ?? __('Sin categoría') }}</div>
                                     </div>
                                 </td>
                                 <td>{{ $product->price }}</td>

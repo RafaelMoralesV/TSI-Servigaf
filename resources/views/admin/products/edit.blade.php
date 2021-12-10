@@ -10,11 +10,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     @if ($errors->any())
                         <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                            @foreach($errors->all() as $error)
+                                <x-alerts.error :message="$error" />
+                            @endforeach
                         </div>
                     @endif
 
@@ -30,11 +28,23 @@
                         </div>
 
                         <div class="mt-4">
-                            <x-label for="category" :value="__('Categoria')"></x-label>
-                            <x-input id="category" class="block mt-1 w-full"
+                            <x-label for="category" :value="__('Categoria')" />
+                            <select id="category" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                      type="text"
                                      name="category"
-                                     required :value="$product->category"></x-input>
+                                     required :value="$product->category">
+                                <option value="">{{ __('Seleccionar') }}</option>
+                                @foreach($groups as $group)
+                                    <option value="" disabled>{{ $group->group_name }}</option>
+                                    @foreach($group->categories as $category)
+                                        <option value="{{ $category->id }}" @if($category->id == $product->category_id) selected @endif>
+                                            {{ $loop->iteration }} - {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                    <option value=""> </option>
+                                @endforeach
+                                <option value="no_category">{{ __('Sin categoría') }}</option>
+                            </select>
                         </div>
 
                         <div class="mt-4">
