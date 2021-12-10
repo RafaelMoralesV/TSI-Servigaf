@@ -22,7 +22,7 @@
                         </button>
                     </form>
                 </label>
-                
+
             </div>
         </div>
         <div class="hidden lg:flex items-center space-x-5 items-center mr-5 lg:mr-44 ">
@@ -45,6 +45,7 @@
                 @foreach ($groups as $group)
                 <x-guest.nav-link :items='$group->categories' >{{ $group->group_name }}</x-guest.nav-link>
                 @endforeach
+                <x-guest.nav-link >{{ __('Otros') }}</x-guest.nav-link>
             </ul>
         </div>
 

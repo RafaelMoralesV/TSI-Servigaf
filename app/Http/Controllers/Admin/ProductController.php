@@ -54,6 +54,12 @@ class ProductController extends Controller
             $product->img_path = str_replace('public', 'storage', $path);
         }
 
+        if ($category = Category::where('id', $request['category'])->first()) {
+            $product->category_id = $category->id;
+        } else if ($request['category'] == "no_category") {
+            $product->category_id = null;
+        }
+
         $product->save();
 
         return redirect()->route('products.index');

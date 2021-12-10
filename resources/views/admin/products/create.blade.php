@@ -33,11 +33,22 @@
 
                         <div class="mt-4">
                             <x-label for="category" :value="__('Categoria')"></x-label>
-                            <x-input id="category" class="block mt-1 w-full"
-                                     type="text"
-                                     name="category"
-                                     :value="old('category')"
-                                     required></x-input>
+                            <select id="category" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                    type="text"
+                                    name="category"
+                                    required>
+                                <option value="">{{ __('Seleccionar') }}</option>
+                                @foreach($groups as $group)
+                                    <option value="" disabled>{{ $group->group_name }}</option>
+                                    @foreach($group->categories as $category)
+                                        <option value="{{ $category->id }}">
+                                            {{ $loop->iteration }} - {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                    <option value=""> </option>
+                                @endforeach
+                                <option value="no_category">{{ __('Sin categoría') }}</option>
+                            </select>
                         </div>
 
                         <div class="mt-4">

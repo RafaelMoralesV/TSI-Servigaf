@@ -31,8 +31,7 @@
                             <x-label for="category" :value="__('Categoria')" />
                             <select id="category" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                      type="text"
-                                     name="category"
-                                     required :value="$product->category">
+                                     name="category">
                                 <option value="">{{ __('Seleccionar') }}</option>
                                 @foreach($groups as $group)
                                     <option value="" disabled>{{ $group->group_name }}</option>
