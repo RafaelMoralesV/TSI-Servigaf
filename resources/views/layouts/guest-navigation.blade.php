@@ -42,10 +42,9 @@
     <div class="flex justify-between bg-gray-900 text-white w-full">
         <div class="px-5 lg:px-12 flex w-full items-center lg:ml-24 ">
             <ul class="hidden lg:flex px-6 mx-left ml-5 font-semibold font-heading space-x-12">
-                <x-guest.nav-link>{{ __('Categoria 1') }}</x-guest.nav-link>
-                <x-guest.nav-link>{{ __('Categoria 2') }}</x-guest.nav-link>
-                <x-guest.nav-link>{{ __('Categoria 3') }}</x-guest.nav-link>
-                <x-guest.nav-link>{{ __('Categoria 4') }}</x-guest.nav-link>
+                @foreach ($groups as $group)
+                <x-guest.nav-link :items='$group->categories' >{{ $group->group_name }}</x-guest.nav-link>
+                @endforeach
             </ul>
         </div>
 
