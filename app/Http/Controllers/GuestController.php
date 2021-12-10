@@ -7,6 +7,8 @@ use Illuminate\Contracts\View\View;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\CategoryGroup;
 
 class GuestController extends Controller
 {
@@ -43,12 +45,16 @@ class GuestController extends Controller
     {
         $search_query = $request->validated()['search'];
 
-        $products = Product::where('name', 'like', "%$search_query%")
-                            ->orWhere('category', 'like', "%$search_query%")
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
+                            ->join('category_groups', 'categories.category_group_id', '=', 'category_groups.id')
+                            ->where('products.name', 'like', "%$search_query%")
+                            ->orWhere('categories.name', 'like', "%$search_query%")
+                            ->orWhere('group_name', 'like', "%$search_query%")
                             ->orwhere('description', 'like', "%$search_query%")
-                            ->get();
-
+                            ->get(["products.*"]);
+                            
         return view('posts.search-result')->with('products', $products);
     }
+    
 
 }
