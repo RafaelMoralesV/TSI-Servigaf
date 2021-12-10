@@ -19,23 +19,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        User::factory(10)->create();
         User::factory(1)->create([
             'name' => "Base admin",
             'email' => "email@mailinator.com",
         ]);
-
-        Product::factory(50)->create();
-
-        Client::factory(10)->create()->each(function ($client){
-            Transaction::factory(1)->create([
-                'client_id' => $client->id,
-            ])->each(function ($transaction){
-                Order::factory(3)->create([
-                    'transaction_id' => $transaction->id,
-                ]);
-            });
-        });
-
     }
 }
