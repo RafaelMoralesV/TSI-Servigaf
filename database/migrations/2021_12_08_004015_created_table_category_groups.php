@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\CategoryGroup;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreatedTableCategoryGroups extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +13,9 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('category_groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(CategoryGroup::class)->constrained()->onDelete('cascade');
-            $table->string('name');
-            $table->timestamps();
+            $table->string('group_name')->unique();
         });
     }
 
@@ -29,6 +26,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('category_group');
     }
 }

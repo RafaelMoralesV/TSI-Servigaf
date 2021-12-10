@@ -6,8 +6,10 @@ use Gloudemans\Shoppingcart\CanBeBought;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model implements Buyable
@@ -32,11 +34,14 @@ class Product extends Model implements Buyable
     public function transactions(): BelongsToMany
     {
         return $this->belongsToMany(Transaction::class, 'orders');
-    }   
-    
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
-    
+
+    public function group(): HasOneThrough {
+        return $this->hasOneThrough(CategoryGroup::class, Category::class);
+    }
 }
