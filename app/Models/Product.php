@@ -32,5 +32,11 @@ class Product extends Model implements Buyable
     public function transactions(): BelongsToMany
     {
         return $this->belongsToMany(Transaction::class, 'orders');
+    }   
+    
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
+    
 }
