@@ -6,7 +6,7 @@
         <ul class="top-0 w-48 bg-gray-900 shadow px-6 py-8">
             @forelse($items as $item)
                 <li class="py-1">
-                    <a class="block cursor-pointer" href="{{ $item->link ?? '#' }}">
+                    <a class="block cursor-pointer" href="{{ route('mostrar_categoria', $item->name) }}">
                         {{ $item->name }}
                     </a>
                 </li>

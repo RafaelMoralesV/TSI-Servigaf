@@ -55,6 +55,16 @@ class GuestController extends Controller
                             
         return view('posts.search-result')->with('products', $products);
     }
+    public function show_category($category): View
+    {
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
+                            ->join('category_groups', 'categories.category_group_id', '=', 'category_groups.id')
+                            ->where('categories.name', 'like', "%$category%")
+                            ->orWhere('group_name', 'like', "%$category%")
+                            ->get(["products.*"]);
+
+        return view('posts.mostrarCategoria')->with('products', $products);
+    }
     
 
 }

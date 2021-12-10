@@ -43,7 +43,7 @@
         <div class="px-5 lg:px-12 flex w-full items-center lg:ml-24 ">
             <ul class="hidden lg:flex px-6 mx-left ml-5 font-semibold font-heading space-x-12">
                 @foreach ($groups as $group)
-                <x-guest.nav-link :items='$group->categories' >{{ $group->group_name }}</x-guest.nav-link>
+                <x-guest.nav-link :items='$group->categories'><a href="{{ route('mostrar_categoria', $group->group_name) }}">{{ $group->group_name }}</a></x-guest.nav-link>
                 @endforeach
             </ul>
         </div>

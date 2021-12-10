@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GuestController::class, 'index'])->name("landing");
 Route::get('product/{product}', [GuestController::class, 'show'])->name('guest.product.show');
 Route::get('/Cart', [GuestController::class, 'show_cart'])->name('mostrar_carro');
+Route::get('/Category/{group}', [GuestController::class, 'show_category'])->name('mostrar_categoria');
 
 Route::resource('client', CreateClientController::class)->only(['create', 'store']);
 
