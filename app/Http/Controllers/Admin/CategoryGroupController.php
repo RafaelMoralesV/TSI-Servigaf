@@ -17,9 +17,7 @@ class CategoryGroupController extends Controller
      */
     public function index(): View
     {
-        $categoryGroups = CategoryGroup::with('categories')->paginate(5);
-
-        return view('admin.categories.index', compact('categoryGroups'));
+        return view('admin.categories.index');
     }
 
     /**
