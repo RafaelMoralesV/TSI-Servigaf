@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryGroupController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\CreateClientController;
@@ -36,6 +37,9 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::resource('products', ProductController::class)->except('show');
     Route::resource('transactions', TransactionController::class)
         ->only(['index', 'show']);
+    Route::resource('categories', CategoryGroupController::class);
+    Route::post('categories/group', [CategoryGroupController::class, 'groupStore'])
+        ->name('categories.group');
 });
 
 Route::get('/posts', function () {
