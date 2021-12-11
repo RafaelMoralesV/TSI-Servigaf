@@ -49,6 +49,7 @@ class GuestController extends Controller
                             ->join('category_groups', 'categories.category_group_id', '=', 'category_groups.id')
                             ->where('products.name', 'like', "%$search_query%")
                             ->orWhere('categories.name', 'like', "%$search_query%")
+                            ->orWhere('products.brand', 'like', "%$search_query%")
                             ->orWhere('group_name', 'like', "%$search_query%")
                             ->orwhere('description', 'like', "%$search_query%")
                             ->get(["products.*"]);
