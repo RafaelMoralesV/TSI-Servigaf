@@ -1,28 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
-use App\Models\CategoryGroup;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class CategoryGroupController extends Controller
+class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return View
-     */
-    public function index(): View
-    {
-        $categoryGroups = CategoryGroup::paginate(5);
-        return view('admin.categories.index', compact('categoryGroups'));
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -31,7 +17,8 @@ class CategoryGroupController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-
+        Category::create($request->validated());
+        return redirect()->route('groups.index')->with('message', 'Categoria creada con exito');
     }
 
     /**
@@ -60,16 +47,12 @@ class CategoryGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
-    }
-
-    public function groupStore(Request $request)
-    {
-
+        $category->delete();
+        return redirect()->route('groups.index')->with('message', 'Categoria eliminada existosamente');
     }
 }

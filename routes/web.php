@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryGroupController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreateClientController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\TransbankController;
@@ -35,11 +36,9 @@ Route::prefix('transbank')->as('transbank.')->group(function () {
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
     Route::resource('products', ProductController::class)->except('show');
-    Route::resource('transactions', TransactionController::class)
-        ->only(['index', 'show']);
-    Route::resource('categories', CategoryGroupController::class);
-    Route::post('categories/group', [CategoryGroupController::class, 'groupStore'])
-        ->name('categories.group');
+    Route::resource('transactions', TransactionController::class)->only(['index', 'show']);
+    Route::resource('groups', CategoryGroupController::class)->except(['create', 'show']);
+    Route::resource('categories', CategoryController::class)->except(['index', 'create', 'show']);
 });
 
 Route::get('/posts', function () {
