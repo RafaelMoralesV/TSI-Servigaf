@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryGroupRequest;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use App\Models\CategoryGroup;
@@ -29,9 +30,10 @@ class CategoryGroupController extends Controller
      * @param StoreCategoryRequest $request
      * @return RedirectResponse
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreCategoryGroupRequest $request)
     {
-
+        CategoryGroup::create($request->validated());
+        return redirect()->route('groups.index')->with('message', 'Grupo creado exitosamente');
     }
 
     /**
@@ -60,12 +62,13 @@ class CategoryGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param CategoryGroup $categoryGroup
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(CategoryGroup $group)
     {
-        //
+        $group->delete();
+        return redirect()->route('groups.index')->with('message', 'Grupo eliminado correctamente');
     }
 
     public function groupStore(Request $request)
