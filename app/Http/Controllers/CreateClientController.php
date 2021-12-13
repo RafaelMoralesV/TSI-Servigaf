@@ -33,7 +33,7 @@ class CreateClientController extends Controller
 
         $transaction = Transaction::create([
             'client_id' => $client->id,
-            'final_price' => (int) Cart::subtotal(0, '', ''),
+            'final_price' => (int) Cart::subtotal(0, '', '')+3000, //precio de envio
             'buy_order' => now()->format("Ymdhis")
         ]);
 
@@ -45,7 +45,7 @@ class CreateClientController extends Controller
                 'total_price' => $product->qty * $product->price,
             ]);
         }
-
-        return redirect()->route('transbank.create')->with('transaction', $transaction);
+        session(['transaction'=>$transaction]);
+        return redirect()->route('transbank.create');
     }
 }
