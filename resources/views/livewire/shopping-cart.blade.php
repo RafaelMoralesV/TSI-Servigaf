@@ -44,7 +44,10 @@
     </tbody>
 </table>
     <div class="flex items-center justify-end mt-4">
-        <h3 class="text-xl font-bold">{{ __('Total: $') . $total }} </h3>
+        <h3 class="text-xl font-bold">Envio: $3,000</h3>
+    </div>
+    <div class="flex items-center justify-end mt-4">
+        <h3 class="text-xl font-bold">{{ __('Total: $') . $total . ' + 3,000'}} </h3>
         <button type="button"
                 @if($products->isNotEmpty())
                 onclick="window.location='{{ route('client.create') }}'"
