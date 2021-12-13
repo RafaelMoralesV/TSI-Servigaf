@@ -10,7 +10,7 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'phone', 'address'];
+    protected $fillable = ['name', 'phone', 'address', 'email'];
 
     public function transaction(): HasMany {
         return $this->hasMany(Transaction::class);

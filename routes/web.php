@@ -36,6 +36,14 @@ Route::prefix('transbank')->as('transbank.')->group(function () {
     Route::any('returnUrl', [TransbankController::class, 'commitTransaction'])->name('returnUrl');
 });
 
+Route::get('boleta/{buy_order}', function (string $buy_order){
+    $transaction = \App\Models\Transaction::where('buy_order', $buy_order)
+        ->where('was_payed', TRUE)
+        ->with(['client', 'products'])
+        ->firstOrFail();
+
+    return (new \App\Services\InvoiceService())->create($transaction->client, $transaction);
+});
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');

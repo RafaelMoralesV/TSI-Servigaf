@@ -28,7 +28,8 @@ class CreateClientController extends Controller
         $client = Client::create([
             'name' => $req['name'],
             'address' => $req['address'] . '. ' . $req['city'],
-            'phone' => $req['phone']
+            'phone' => $req['phone'],
+            'email' => $req['email'],
         ]);
 
         $transaction = Transaction::create([
