@@ -38,12 +38,9 @@
                             Serás redireccionado a la página de Webpay donde podrás realizar el pago, posteriormente se te redireccionará a una página donde recibirás tu boleta electrónica, tu pedido será confirmado lo antes posible y se te enviará un correo cuando esto suceda.
                         </p>
                         </div>
-                
-        
-                {{-- {{ $products->appends(request()->input())->links() }}
-                @endif --}}
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </x-guest-layout>
