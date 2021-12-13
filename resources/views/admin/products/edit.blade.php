@@ -27,6 +27,15 @@
                                      required></x-input>
                         </div>
 
+                        <div>
+                            <x-label for="brand" :value="__('Marca')"></x-label>
+                            <x-input id="brand" class="block mt-1 w-full"
+                                     type="text"
+                                     name="brand"
+                                     :value="old('brand')"
+                                     required></x-input>
+                        </div>
+
                         <div class="mt-4">
                             <x-label for="category" :value="__('Categoria')" />
                             <select id="category" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"

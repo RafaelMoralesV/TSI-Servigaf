@@ -25,6 +25,7 @@ class StoreProductsRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
+            'brand' => 'required|max:255',
             'category' => 'required|max:255',
             'price' => 'required|numeric|integer|min:0',
             'image' => 'image|nullable',

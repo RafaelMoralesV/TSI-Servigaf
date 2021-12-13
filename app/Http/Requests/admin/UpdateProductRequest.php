@@ -25,6 +25,7 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'max:255',
+            'brand' => 'max:255',
             'category' => 'present',
             'price' => 'numeric|integer|min:0',
             'image' => 'image|nullable',

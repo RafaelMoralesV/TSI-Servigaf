@@ -21,6 +21,7 @@ class Product extends Model implements Buyable
     protected $fillable = [
         'name',
         'category_id',
+        'brand',
         'price',
         'description',
         'stock',
