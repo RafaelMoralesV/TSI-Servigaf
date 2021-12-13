@@ -23,6 +23,10 @@ class TransbankController extends Controller
 
     public function createdTransaction()
     {
+        if(Session::missing('transaction'))
+        {
+            return redirect()->route('mostrar_carro')->withErrors(['Transactionless'=>'Ha ocurrido un error en la transacción']);
+        }
         $transaction = Session::get('transaction');
 
         $resp = WebpayPlus::transaction()
