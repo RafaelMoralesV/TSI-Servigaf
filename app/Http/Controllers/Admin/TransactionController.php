@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class TransactionController extends Controller
 {
@@ -15,7 +16,9 @@ class TransactionController extends Controller
      */
     public function index(): View
     {
-        $transactions = Transaction::with('products', 'client')->paginate(10);
+        $transactions = Transaction::with('products', 'client')
+            ->orderByDesc('updated_at')
+            ->paginate(10);
 
         return view('admin.transactions.index', compact('transactions'));
     }
@@ -25,11 +28,11 @@ class TransactionController extends Controller
      * Display the specified resource.
      *
      * @param Transaction $transaction
-     * @return View
+     * @return RedirectResponse
      */
-    public function show(Transaction $transaction): View
+    public function show(Transaction $transaction): RedirectResponse
     {
-        return view('admin.transactions.show', compact('transaction'));
+        return redirect()->route('boleta', $transaction->buy_order);
     }
 
 }

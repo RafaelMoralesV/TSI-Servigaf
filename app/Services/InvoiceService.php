@@ -38,6 +38,7 @@ class InvoiceService
         $invoice = Invoice::make('Boleta')
             ->seller($servigaf)
             ->buyer($customer)
+            ->sequence($transaction->buy_order)
             ->shipping(3000)
             ->logo(public_path('logo.png'))
             ->currencySymbol('$')

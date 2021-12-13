@@ -85,10 +85,10 @@
                         @empty
                             <tr>
                                 <th>#</th>
-                                <th>...</th>
-                                <th>...</th>
-                                <th>...</th>
-                                <th>...</th>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
                             </tr>
                         @endforelse
                         </tbody>

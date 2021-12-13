@@ -34,6 +34,7 @@ Route::resource('client', CreateClientController::class)->only(['create', 'store
 Route::prefix('transbank')->as('transbank.')->group(function () {
     Route::get('payment', [TransbankController::class, 'createdTransaction'])->name('create');
     Route::any('returnUrl', [TransbankController::class, 'commitTransaction'])->name('returnUrl');
+    Route::view('thanks', 'webpayplus.transaction_committed')->name('finished');
 });
 
 Route::get('boleta/{buy_order}', function (string $buy_order){
@@ -43,7 +44,7 @@ Route::get('boleta/{buy_order}', function (string $buy_order){
         ->firstOrFail();
 
     return (new \App\Services\InvoiceService())->create($transaction->client, $transaction);
-});
+})->name('boleta');
 
 Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');

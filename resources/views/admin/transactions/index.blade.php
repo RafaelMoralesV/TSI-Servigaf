@@ -16,6 +16,8 @@
                             <th>{{ __('Fecha creacion') }}</th>
                             <th>{{ __('Cliente') }}</th>
                             <th>{{ __('Valor transaccion') }}</th>
+                            <th>{{ __('Pagado') }}</th>
+                            <th>{{ __('Enviado') }}</th>
                             <th>{{ __('Acciones') }}</th>
                         </tr>
                         </thead>
@@ -26,6 +28,8 @@
                                 <td>{{ $transaction->created_at }}</td>
                                 <td>{{ $transaction->client->name }}</td>
                                 <td>{{ $transaction->final_price }}</td>
+                                <td>{{ $transaction->was_payed ? 'Si' : 'No' }}</td>
+                                <td>{{ $transaction->was_recieved ? 'Si' : 'No' }}</td>
                                 <td><a type="button"
                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                                        href="{{ route('transactions.show', $transaction) }}">
@@ -35,10 +39,12 @@
                         @empty
                             <tr>
                                 <th>#</th>
-                                <th>...</th>
-                                <th>...</th>
-                                <th>...</th>
-                                <th>...</th>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
                             </tr>
                         @endforelse
                         </tbody>

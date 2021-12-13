@@ -80,6 +80,6 @@ class TransbankController extends Controller
 
         Cart::destroy();
 
-        return view('webpayplus/transaction_committed');
+        return redirect()->route('transbank.finished');
     }
 }
