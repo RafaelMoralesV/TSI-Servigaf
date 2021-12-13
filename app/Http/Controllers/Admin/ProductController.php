@@ -8,8 +8,6 @@ use App\Http\Requests\admin\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\CategoryGroup;
 use App\Models\Product;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 

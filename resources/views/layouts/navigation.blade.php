@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
                         {{ __('Productos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.*')">
+                        {{ __('Categorías de Productos') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.*')">
                         {{ __('Transacciones') }}
                     </x-nav-link>
@@ -73,6 +76,9 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
+                {{ __('Categorías de Productos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.*')">
                 {{ __('Productos') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.*')">
