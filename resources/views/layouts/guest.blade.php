@@ -51,13 +51,13 @@
                 <div class="px-3 md:px-0">
                     <h3 class="font-bold text-gray-900">Información</h3>
                     <ul class="list-reset items-center pt-3">
-                        <li><a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="#">
+                        <li><a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="{{ route('mediosDePago') }}">
                                 {{ __('Medios de pago') }}
                             </a></li>
-                        <li><a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="#">
+                        <li><a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="{{ route('comoComprar') }}">
                                 {{ __('Como comprar') }}
                             </a></li>
-                        <li><a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="#">
+                        <li><a class="inline-block no-underline hover:text-gray-200 hover:underline py-1" href="{{ route('envios') }}">
                                 {{ __('Envios') }}
                             </a></li>
                     </ul>

@@ -28,32 +28,7 @@
             <h1>Search Results</h1>
             <section class="bg-white py-8">
                 <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-                <tbody>
-                    <table class="w-full bg-white shadow-md rounded mb-4">
-                        <tbody>
-                        @forelse($products as $product)
-                            <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-
-                                <a href="{{ route('guest.product.show', $product) }}">
-                                    <img class="hover:grow hover:shadow-lg" src="{{ asset($product->img_path) }}">
-                                    <div class="pt-3 flex items-center justify-between">
-                                        <p class="">{{$product->name}}</p>
-                                    </div>
-                                    <p class="pt-1 text-gray-900">${{$product->price}}</p>
-                                </a>
-            
-                            </div>
-                        @empty
-                            <tr>
-                                <th scope="row">#</th>
-                                <td>None</td>
-                                <td>None</td>
-                            </tr>
-                        @endforelse
-                        </tbody>
-                    </table>
-                </tbody>
-                {!! $products->links() !!}
+                
                 </div>
             </section>
             
