@@ -9,6 +9,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Transbank\Webpay\WebpayPlus;
+use App\Models\Product;
 
 class TransbankController extends Controller
 {
@@ -37,6 +38,7 @@ class TransbankController extends Controller
                 $transaction->final_price,
                 route('transbank.returnUrl')
             );
+        
 
         return view('webpayplus/transaction_created', compact('resp'));
     }
@@ -69,7 +71,13 @@ class TransbankController extends Controller
         }
 
         Transaction::where('buy_order', $resp->getBuyOrder())->update(['was_payed' => true]);
-
+        
+        foreach(Cart::content() as $product){
+            $aux = Product::where('id',$product->id)->first();
+            $aux->stock = ($aux->stock - $product->qty );
+            $aux->save();
+        }
+        
         Cart::destroy();
 
         return view('webpayplus/transaction_committed');
