@@ -53,7 +53,7 @@
                         </tbody>
                     </table>
                 </tbody>
-                {!! $products->links() !!}
+                {{ $products->links() }}
                 </div>
             </section>
             

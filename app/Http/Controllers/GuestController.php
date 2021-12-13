@@ -52,10 +52,15 @@ class GuestController extends Controller
                             ->orWhere('products.brand', 'like', "%$search_query%")
                             ->orWhere('group_name', 'like', "%$search_query%")
                             ->orwhere('description', 'like', "%$search_query%")
-                            ->get(["products.*"]);
+                            ->select('products.*')
+                            ->paginate(12);
+
+        $products->appends(["search"=>$search_query]);
                             
-        return view('posts.search-result')->with('products', $products);
+        return view('posts.search-result',['products' => $products]);
+        // ->with('products', $products);
     }
+
     public function show_category($category): View
     {
         $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
@@ -66,6 +71,4 @@ class GuestController extends Controller
 
         return view('posts.mostrarCategoria')->with('products', $products);
     }
-    
-
 }
