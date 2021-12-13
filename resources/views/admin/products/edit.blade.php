@@ -32,7 +32,7 @@
                             <x-input id="brand" class="block mt-1 w-full"
                                      type="text"
                                      name="brand"
-                                     :value="old('brand')"
+                                     :value="$product->brand"
                                      required></x-input>
                         </div>
 

@@ -45,8 +45,8 @@ class GuestController extends Controller
     {
         $search_query = $request->validated()['search'];
 
-        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
-                            ->join('category_groups', 'categories.category_group_id', '=', 'category_groups.id')
+        $products = Product::leftjoin('categories', 'products.category_id', '=', 'categories.id')
+                            ->leftjoin('category_groups', 'categories.category_group_id', '=', 'category_groups.id')
                             ->where('products.name', 'like', "%$search_query%")
                             ->orWhere('categories.name', 'like', "%$search_query%")
                             ->orWhere('products.brand', 'like', "%$search_query%")
@@ -56,7 +56,7 @@ class GuestController extends Controller
                             ->paginate(12);
 
         $products->appends(["search"=>$search_query]);
-                            
+
         return view('posts.search-result',['products' => $products]);
         // ->with('products', $products);
     }
@@ -69,7 +69,7 @@ class GuestController extends Controller
                             ->orWhere('group_name', 'like', "%$category%")
                             ->select('products.*')
                             ->paginate(12);
-        
+
         $products->appends(["category"=>$category]);
 
         return view('posts.mostrarCategoria',['products' => $products]);
