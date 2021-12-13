@@ -31,9 +31,12 @@
                         <br>
                         <div class="flex justify-center flex-col">
                         <p class="text-lg font-sans">
-                            A continuación ofreceremos los distintos medios de pago con los que puedes cancelar un pedido, gracias a WebPayPLus de transbank puedes realizar tus pagos con tarjetas de credito o débito:
+                            Comprar un producto en nuestro sitio es muy sencillo, lo primero es encontrar el producto mediante el buscador o gracias a las categorias, luego de eso podemos acceder al carrito de compras donde podremos revisar los contenidos agregados anteriormente. 
+                            <br>
+                            Una vez listo procederemos al Checkout donde se pedirán sus datos, asegurate de ingresarlos correctamente ya que estos serán los utilizados para el posterior contacto y envío.
+                            <br>
+                            Serás redireccionado a la página de Webpay donde podrás realizar el pago, posteriormente se te redireccionará a una página donde recibirás tu boleta electrónica, tu pedido será confirmado lo antes posible y se te enviará un correo cuando esto suceda.
                         </p>
-                        <img class="max-w-xs  mx-auto" src="{{ asset('logos/webpay-cl.jpg') }}" alt="Webpay">
                         </div>
                 
         
