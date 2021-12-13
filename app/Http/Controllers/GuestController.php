@@ -67,8 +67,11 @@ class GuestController extends Controller
                             ->join('category_groups', 'categories.category_group_id', '=', 'category_groups.id')
                             ->where('categories.name', 'like', "%$category%")
                             ->orWhere('group_name', 'like', "%$category%")
-                            ->get(["products.*"]);
+                            ->select('products.*')
+                            ->paginate(12);
+        
+        $products->appends(["category"=>$category]);
 
-        return view('posts.mostrarCategoria')->with('products', $products);
+        return view('posts.mostrarCategoria',['products' => $products]);
     }
 }
